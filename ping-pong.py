@@ -1,5 +1,8 @@
 from pygame import *
 
+
+finish = False
+
 window_height = 700
 window_width = 500
 
@@ -32,7 +35,18 @@ class Player(GameSprite):
         if keys [K_UP] and self.rect.y > 5:
             self.rect.y -= self.speed
 
-    
-        
-    
-    
+player1 = Player(40, 390, 5, 'ракетка для пинг понга.jpg', 65,65 )
+
+player2 = Player(40, 40, 5, 'ракетка для пинг понга.jpg', 65,65 )
+
+game = True   #игровой цикл
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+    if finish == False:
+
+        window.blit(background, (0, 0))
+        player1.paint()
+        player2.paint()
+        display.update()
