@@ -1,3 +1,13 @@
+from pygame import *
+
+window_height = 700
+window_width = 500
+
+window = display.set_mode((window_height,window_width))  #оформление
+display.set_caption("Пинг-понг")
+background = transform.scale(image.load('Задний фон.jpg'), (window_height, window_width))
+
+
 class GameSprite(sprite.Sprite):  #создание классов
     def __init__(self, x_cor, y_cor, player_speed, player_image, w, h ):
         super().__init__()
