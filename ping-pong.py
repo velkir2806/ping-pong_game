@@ -27,17 +27,24 @@ class GameSprite(sprite.Sprite):  #создание классов
 class Player(GameSprite):
     def update_r(self):
         keys = key.get_pressed()
-        if keys [K_W] and self.rect.y > 5:
+        if keys [K_w] and self.rect.y > 5:
             self.rect.y -= self.speed
+        if keys [K_s] and self.rect.y < 430:
+            self.rect.y += self.speed
 
     def update_l(self):
         keys = key.get_pressed()
         if keys [K_UP] and self.rect.y > 5:
             self.rect.y -= self.speed
+        if keys [K_DOWN] and self.rect.y < 430:
+            self.rect.y += self.speed
 
 player1 = Player(40, 390, 5, 'ракетка для пинг понга.jpg', 65,65 )
 
-player2 = Player(40, 40, 5, 'ракетка для пинг понга.jpg', 65,65 )
+player2 = Player(600,390, 5, 'ракетка для пинг понга.jpg', 65,65 )
+
+
+class Enemy
 
 game = True   #игровой цикл
 while game:
@@ -47,6 +54,12 @@ while game:
     if finish == False:
 
         window.blit(background, (0, 0))
+        
         player1.paint()
+        player1.update_r()
+
         player2.paint()
+        player2.update_l()
+
         display.update()
+
